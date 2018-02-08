@@ -1,0 +1,89 @@
+https://www.boraji.com/spring-mvc-4-file-download-example
+
+Above url is for returning file 
+
+actual code executed :
+
+- Controller : 
+	@CrossOrigin
+	@RequestMapping(value = "/returnFile", method = RequestMethod.GET, consumes = "application/json", produces = "application/xml")
+	public ResponseEntity<InputStreamResource> retunFile(@RequestParam("empId") String empId) {
+		System.out.println("empId " + empId);
+		corsOrginHeaders();
+		ResourceSupport resource = new ResourceSupport();
+		
+		try {	
+			ResponseEntity<InputStreamResource> fileresource =  userService.retunFile(empId);
+		/*	resource.setActionStatus(true);	
+			resource.setDetails(fileresource);*/
+			return fileresource ; 
+		} catch (Exception e) {
+			resource.setActionStatus(false);
+			resource.setErrorMessage(e.getMessage());
+			return new ResponseEntity(resource, HttpStatus.INTERNAL_SERVER_ERROR);
+		
+		}
+
+	}
+  
+  Implementation : 
+  
+  
+  public ResponseEntity<InputStreamResource>  retunFile(String empId) {		
+		
+		@SuppressWarnings("rawtypes")
+		ResourceSupport resource = new ResourceSupport();	
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+	
+		
+		HttpHeaders header = new HttpHeaders();
+	    ResponseEntity<InputStreamResource> r = null ;  
+	    
+	    byte[] resumeBlob= null;
+	        
+		try{
+		Employee empResume = (Employee) session.get(Employee.class, empId);
+		String filename =empResume.getImage_name();
+	    resumeBlob = empResume.getEmployeeImage();		
+	    
+	    File f = null;
+	    if(filename != null){
+	     f = new File(filename);
+	  
+	    String mimeType= URLConnection.guessContentTypeFromName(f.getName());
+	    System.out.println("mimeType "+mimeType);
+        if(mimeType==null){
+            System.out.println("mimetype is not detectable, will take default");
+            mimeType = "application/octet-stream";
+        }
+        InputStream inputStream = new ByteArrayInputStream(resumeBlob);
+        InputStreamResource byTeArrResource =  new InputStreamResource(inputStream);
+
+        header.setContentType(MediaType.parseMediaType(mimeType));
+        header.set("Content-Disposition", "attachment; filename=" + filename);
+        header.setContentLength(resumeBlob.length);
+
+        r = new ResponseEntity<InputStreamResource>(byTeArrResource, header, HttpStatus.OK);
+       	     
+	    }
+        
+		session.flush();
+		session.clear();
+		tx.commit();
+		
+		System.out.println("Deleted successfully ");
+
+	} catch (Exception e) {
+		resource.setActionStatus(false);
+		resource.setErrorMessage(e.getMessage());
+		tx.rollback();
+		e.printStackTrace();
+	
+		logger.error("Failed to get  the employee profile  details :->" + e.getMessage());
+	} finally {
+		session.close();
+	}
+		return r;
+	
+	}
