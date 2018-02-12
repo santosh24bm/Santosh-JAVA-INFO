@@ -1,0 +1,15 @@
+exlore to exclude the jar files in push ***
+
+
+git init
+git add .
+git status 
+git commit -m "first commit"
+git remote add origin https://github.com/santosh24bm/Santosh-Repository.git
+git push -u origin master
+
+
+others :
+ - check central repository 
+$ git config --get remote.origin.url
+https://github.com/santosh24bm/Santosh-Repository.git
