@@ -22,5 +22,16 @@ reflections uses
 difference bewtween stream and collection 
  parallel array vs parallel collection 
  
+ ======================================
  
+ java 7 features :
+ 
+ 1 . functional programming is enabled 
+2. boiler code is removed 
+3. allows parallel processing 
+
+
+why ?
+
+when is the funcional programmingis useful ?
  
