@@ -1,0 +1,13 @@
+Design patterns : 
+
+- they are not related to any particlar language 
+- they are the idea of how architechture should be 
+- design pattern gives the clarity about the architechture of the project 
+
+Some of the basic desgn patterns are :
+
+object creational desing patterns :
+1. Factory Method Pattern - 
+
+- define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate.
+
