@@ -1,0 +1,73 @@
+JAVA 
+SQL 
+PL SQL 
+MQ
+Hiberante  - flow , 
+JPA 
+mapping techniques 
+spring 
+javascrip anaonymous funtions
+css
+botstrp 
+session management - cookies 
+hhtp , hhtps 
+
+rest services 
+
+ml
+
+
+- -- - - - - - - 
+
+http vs https ?
+java 1.7 vs 1.8 
+
+main - feature .. labda expressions ? ex ?** - implementing the interface methods is easy 
+
+design patterns ?
+sigleton , facory 
+immutable class 
+
+serializable 
+indexing 
+
+------------ 
+overloading , overriding 
+  can we overiride and overload static methods ?
+how to call the not static methods and variables from static method ?
+can we overload main method 
+explain system.out println 
+singleton ?
+hashmap , if i put the same key which already existes for the new value  then what will happen 
+Thred and runnanle , how to start thread in both ways , which is best , 
+
+rest services ?
+serialization ? when it is used ?  -- when data is transferred through network , suid is used to validate the object when its de serialized 
+
+is java call by value or call by reference ? -- call by value 
+
+session handling in java ? jsp ?
+
+PLSQL -----
+sql queries , joins used , 
+cursors , procedures , funtions 
+, normalization , 
+
+
+----------- java patterns programs 
+1
+12
+123
+1234
+12345
+
+1
+2 3
+4 5 6 7 
+8 9 10 11 12 13 14 15 
+
+etc 
+
+--------
+http://www.java2novice.com/java_interview_questions/arraylist-linkedlist-use/
+
