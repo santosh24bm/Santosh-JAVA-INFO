@@ -1,0 +1,106 @@
+> s<- strsplit(as.character(x$Comments) , split = "...", fixed=TRUE)
+> s
+[[1]]
+[1] "This app needs some upgradation"                            "should include account statement for all types of accounts"
+
+
+ s2 <- data.frame(V1 = rep(x$Score, sapply(s, length)), V2 = unlist(s))
+ 
+ 
+ 
+ -------------------------------------
+ 
+ 
+ 
+ ---------------------------
+  for(i in 1:2){
+          s<- strsplit(as.character(x[i,2]) , split = ".", fixed=TRUE)
+        }
+> s
+[[1]]
+[1] "Why is this asking me to register again when i've already registered"                
+[2] " I can confirm that there is no change in phone or sim slot"                         
+[3] " I've already faced this earlier and incurred sms charges"                           
+[4] " It occassionaly happens when I reboot my phone"                                     
+[5] " The app is very slow right from logging in and navigating to various options in app"
+[6] " DISAPPOINTED!!!!!"                                                                  
+
+> class(s)
+[1] "list"
+> lengths(s, use.names = TRUE)
+[1] 6
+> lengths(s)
+[1] 6
+
+---------------------------------------------------------------------
+
+    for(i in 1:2){
++                 s[i]<- strsplit(as.character(x[i,2]) , split = ".", fixed=TRUE)
++     }
+> s[1]
+[[1]]
+[1] "This app needs some upgradation"                           
+[2] ""                                                          
+[3] ""                                                          
+[4] "should include account statement for all types of accounts"
+
+> s[2]
+[[1]]
+[1] "Why is this asking me to register again when i've already registered"                
+[2] " I can confirm that there is no change in phone or sim slot"                         
+[3] " I've already faced this earlier and incurred sms charges"                           
+[4] " It occassionaly happens when I reboot my phone"                                     
+[5] " The app is very slow right from logging in and navigating to various options in app"
+[6] " DISAPPOINTED!!!!!"                                                                  
+
+> s
+[[1]]
+[1] "This app needs some upgradation"                           
+[2] ""                                                          
+[3] ""                                                          
+[4] "should include account statement for all types of accounts"
+
+[[2]]
+[1] "Why is this asking me to register again when i've already registered"                
+[2] " I can confirm that there is no change in phone or sim slot"                         
+[3] " I've already faced this earlier and incurred sms charges"                           
+[4] " It occassionaly happens when I reboot my phone"                                     
+[5] " The app is very slow right from logging in and navigating to various options in app"
+--------------------------------------------------------------------
+
+ s2 <- data.frame(V1 = rep(x[2,1], sapply(s, length)), V2 = unlist(s))
+> s2
+  V1                                                                                   V2
+1  1                 Why is this asking me to register again when i've already registered
+2  1                           I can confirm that there is no change in phone or sim slot
+3  1                             I've already faced this earlier and incurred sms charges
+4  1                                       It occassionaly happens when I reboot my phone
+5  1  The app is very slow right from logging in and navigating to various options in app
+6  1                                                                    DISAPPOINTED!!!!!
+
+----------------------------
+s_mer <-NULL
+s_mer <- as.data.frame(temp)
+for(i in 1:2){
+  s<- strsplit(as.character(x[i,2]) , split = ".", fixed=TRUE)
+  s2 <- data.frame(V1 = rep(x[i,1], sapply(s, length)), V2 = unlist(s))
+  if(i == 1){
+    s_mer <- s2
+  } else{
+    s_mer <- merge(x = s_mer, y = s2 , all = TRUE)
+  }
+}
+
+
+
+  V1                                                                                   V2
+1   1                                                                    DISAPPOINTED!!!!!
+2   1                             I've already faced this earlier and incurred sms charges
+3   1                           I can confirm that there is no change in phone or sim slot
+4   1                                       It occassionaly happens when I reboot my phone
+5   1  The app is very slow right from logging in and navigating to various options in app
+6   1                 Why is this asking me to register again when i've already registered
+7   2                                                                                     
+8   2                                                                                     
+9   2                           should include account statement for all types of accounts
+10  2                                                      This app needs some upgradation
