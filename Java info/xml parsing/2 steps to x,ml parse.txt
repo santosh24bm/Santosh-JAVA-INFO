@@ -1,0 +1,17 @@
+JAXM xml parsing to POJO in 2 steps : 
+
+1. Use the below link to get the POJO
+ http://pojo.sodhanalibrary.com/
+
+2 .  Place the below code in main method and iterate the converted xml to java object **depds** 
+
+ 
+
+      JAXBContext context = JAXBContext.newInstance(Dependencies.class);
+    	//Create Unmarshaller using JAXB context
+    	Unmarshaller unmarshaller  = context.createUnmarshaller();
+    	Dependencies depds = null;
+    
+    	File file = new File ("C:/abc.xml");
+    		depds = (Dependencies) 
+    	    		unmarshaller.unmarshal(file);
