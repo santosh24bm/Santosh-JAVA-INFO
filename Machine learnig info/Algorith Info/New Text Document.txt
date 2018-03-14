@@ -1,0 +1,30 @@
+Azure home :
+https://studio.azureml.net/Home/
+
+cortan 
+
+https://gallery.cortanaintelligence.com/
+
+Algorith :
+
+http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/
+
+shared folder
+
+\\172.16.28.156\Users\E002518\Downloads\ShareData\Sridevi
+
+
+Team details:
+
+http://172.16.30.59/vm_management/team_details.php
+
+
+C:\Users\E003610\CignitiInvtnWorkspace\cpu\src\main\resources\rrsJson.json C:\Users\E003610\CignitiInvtnWorkspace\cpu\src\main\resources\apiInfo.txt
+
+
+about evaluare model :
+
+http://mund-consulting.com/Blog/understanding-evaluate-model-in-microsoft-azure-machine-learning/
+
+
+
