@@ -1,0 +1,58 @@
+sql histiry : cesa
+
+update apps_reviews_category set sentiment ="Dissatisfied" where job_id in(select id from apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41') and splitted_text like "%pain%" and splitted_text not like "%painless%";
+
+select job_id , splitted_text,sentiment, score  from apps_reviews_category where job_id in(select id from apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41') 
+and splitted_text like "%wont%" 
+#and sentiment ="Satisfied"
+select splitted_text , sentiment ,score from apps_reviews_category where splitted_text like "%awful%" and 
+ 
+select splitted_text,sentiment, score from apps_reviews_category where job_id in(select id from apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41') and splitted_text like "%not convenient%" and score in (1,2)
+
+update apps_reviews_category set sentiment ="Dissatisfied" where job_id in(select id from apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41')
+# and splitted_text like "%not work%" and sentiment in ("Advocate","Satisfied")
+#and splitted_text like "%bug%" and score in (1,2)
+ and splitted_text like "%disaster%" or splitted_text  like "%inconvenient%"
+
+
+update apps_reviews_category set sentiment ="Satisfied" where job_id in(select id from apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41') and  splitted_text like "%no issue%" and   sentiment = "Dissatisfied"
+
+
+
+--------------------------
+
+SELECT * FROM cesa_aug17th.apps_reviews_category;
+
+
+update apps_reviews_category set sentiment ="Dissatisfied" where splitted_text in (
+
+select  a.splitted_text ,a.sentiment  from 
+(SELECT splitted_text , sentiment , job_id,score  FROM cesa_aug17th.apps_reviews_category) a , 
+
+(select id from cesa_aug17th.apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41' ) b where a.job_id = b.id and a.splitted_text like "%pain%" and a.splitted_text not like "%painless%" ) and job_id in (
+
+select  job_id  from 
+(SELECT splitted_text , sentiment , job_id,score  FROM cesa_aug17th.apps_reviews_category) a , 
+
+(select id from cesa_aug17th.apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41' ) b where a.job_id = b.id and a.splitted_text like "%pain%" and a.splitted_text not like "%painless%"
+
+);
+
+######################accessible
+
+update apps_reviews_category set sentiment ="Dissatisfied" where splitted_text in (
+
+select  a.splitted_text  from 
+(SELECT splitted_text , sentiment , job_id,score  FROM cesa_aug17th.apps_reviews_category) a , 
+
+(select id from cesa_aug17th.apps_jobboard where creation_date >= '16-08-2017 18:16:50' 
+AND creation_date <= '21-08-2017 16:48:41' ) b where a.job_id = b.id and a.splitted_text like "%pain%" and a.splitted_text not like "%painless%");
+
+
